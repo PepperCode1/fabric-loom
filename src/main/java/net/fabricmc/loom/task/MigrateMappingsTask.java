@@ -38,6 +38,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
 import org.cadixdev.lorenz.MappingSet;
 import org.cadixdev.mercury.Mercury;
+import org.cadixdev.mercury.mixin.MixinRemapper;
 import org.cadixdev.mercury.remapper.MercuryRemapper;
 import org.gradle.api.GradleException;
 import org.gradle.api.IllegalDependencyNotation;
@@ -184,6 +185,7 @@ public class MigrateMappingsTask extends AbstractLoomTask {
 		mercury.getClassPath().add(minecraftMappedProvider.getIntermediaryJar().toPath());
 
 		mercury.getProcessors().add(MercuryRemapper.create(mappingSet));
+		mercury.getProcessors().add(MixinRemapper.create(mappingSet));
 
 		try {
 			mercury.rewrite(inputDir, outputDir);

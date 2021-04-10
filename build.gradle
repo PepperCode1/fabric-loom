@@ -31,6 +31,11 @@ repositories {
 		url = 'https://maven.fabricmc.net/'
 	}
 	mavenCentral()
+	// For Mercury Mixin
+	maven {
+		name = "Sponge"
+		url = "https://repo.spongepowered.org/repository/maven-public/"
+	}
 }
 
 dependencies {
@@ -69,6 +74,7 @@ dependencies {
 
 	// source code remapping
 	implementation ('org.cadixdev:mercury:0.1.0-rc1')
+	implementation ('org.cadixdev:mercurymixin:0.1.0-SNAPSHOT')
 
 	// Kapt integration
 	compileOnly('org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.21')
